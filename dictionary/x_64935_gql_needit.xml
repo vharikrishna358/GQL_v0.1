@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="Needit" max_length="40" name="x_64935_gql_needit" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element choice="1" default="13" label="State" max_length="40" name="state" type="choice">
+            <choice>
+                <element label="Requested" sequence="0" value="13"/>
+                <element label="Awaiting Approval" sequence="1" value="14"/>
+                <element label="Approved" sequence="2" value="15"/>
+                <element label="Awaiting Feedback" sequence="3" value="16"/>
+                <element label="Withdrawn" sequence="4" value="8"/>
+                <element label="Closed complete" sequence="5" value="100"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Additional comments " max_length="10000" name="u_additional_comments" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="2000" name="u_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="23" label="Priority" max_length="40" name="u_priority" type="string">
+            <choice>
+                <element label="Critical" sequence="0" value="20"/>
+                <element label="High" sequence="1" value="21"/>
+                <element label="Medium" sequence="2" value="22"/>
+                <element label="Low" sequence="3" value="23"/>
+            </choice>
+        </element>
+        <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
+            <choice>
+                <element label="Human Resources" sequence="0" value="Hr"/>
+                <element label="Facilities" sequence="1" value="facilities"/>
+                <element label="Legal" sequence="2" value="legal"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Short Description" max_length="2000" name="u_short_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="legal 1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
+            <choice>
+                <element label="Human Resources 1Choice 1" sequence="0" value="hr1"/>
+                <element label="Human Resources 2Choice 2" sequence="1" value="hr2"/>
+                <element label="Facilities 1Choice 3" sequence="2" value="facilities1"/>
+                <element label="Facilities 2" sequence="3" value="facilities2"/>
+                <element label="Legal 1" sequence="4" value="legal 1"/>
+                <element label="Legal 2" sequence="5" value="legal 2"/>
+                <element label="Your Department Choice 1" sequence="6" value="your_choice1"/>
+                <element label="Your Department Choice 2" sequence="7" value="your_choice2"/>
+            </choice>
+        </element>
+        <element label="When needed" mandatory="true" max_length="40" name="u_when_needed" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Work notes" max_length="1000" name="u_work_notes" type="string"/>
+        <index name="index">
+            <element name="u_requested_for"/>
+        </index>
+    </element>
+</database>
